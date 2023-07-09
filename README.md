@@ -12,3 +12,4 @@ A new decrypted xlsx document will be created and downloaded.
 ## ToDo list ##
 Store images from the file \
 Web version \
+Add comments
