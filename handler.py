@@ -6,10 +6,9 @@ from string import ascii_letters, digits, punctuation
 
 class ThreadHandler(QtCore.QThread):
     filepath: str = None
-    config: list = None # [Цифры, спец.символы, латиница]
+    config: list = None 
     signal = QtCore.pyqtSignal(list)
 
-    # Символы для генерации пароля
     template = {
         0: digits,
         1: punctuation,
@@ -22,7 +21,6 @@ class ThreadHandler(QtCore.QThread):
         for num, item in enumerate(self.config):
             if item: sequence += self.template[num]
 
-        # Перебираем пароли в бесконечном цикле
         if sequence:
             file = msoffcrypto.OfficeFile(open(self.filepath, "rb"))
             for length in count(0, 1):
